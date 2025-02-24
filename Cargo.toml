@@ -2,6 +2,15 @@
 name = "module_path_extractor"
 version = "0.1.0"
 edition = "2024"
+authors = ["Eran Boodnero <eran@eran.codes>"]
+description = "A Rust procedural macro helper for determining the module path of macro invocations."
+license = "MIT"
+repository = "https://github.com/eboody/module_path_extractor"
+homepage = "https://github.com/eboody/module_path_extractor"
+documentation = "https://docs.rs/module_path_extractor"
+keywords = ["proc-macro", "module-path", "rust-macros", "code-analysis"]
+categories = ["development-tools::procedural-macro-helpers"]
+readme = "README.md"
 
 [dependencies]
 quote = "1.0"
