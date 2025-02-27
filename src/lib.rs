@@ -61,8 +61,7 @@ pub fn generate_pseudo_module_path(file_path: &str, inline_module: Option<String
     let parent_dir = file_path.rsplit_once('/').map(|(dir, _)| dir).unwrap_or("");
 
     let parent_dir = parent_dir.replace("/", "::");
-
-    let parent_dir = parent_dir.strip_prefix("src::").unwrap_or(&parent_dir);
+    let parent_dir = parent_dir.split("::src::").last().unwrap_or(&parent_dir);
 
     if filename == "main" || filename == "lib" {
         return "crate".to_string();
@@ -75,7 +74,7 @@ pub fn generate_pseudo_module_path(file_path: &str, inline_module: Option<String
     if parent_dir.is_empty() {
         filename.to_string()
     } else {
-        format!("{}::{}", parent_dir, filename)
+        format!("crate::{}::{}", parent_dir, filename)
     }
 }
 
